@@ -1,202 +1,172 @@
-# Ragclaw
+# Ragclaw — Skill-First Agentic RAG
 
-本项目是一个面向本地运行、文件优先、可审计的 Agent 工作台。
+一个面向本地运行、文件优先、可审计的 **Skill-First Hybrid RAG** 智能问答系统。
 
-- 对话、工具调用、检索过程都会落到本地文件
-- 长期记忆使用可直接编辑的 `Markdown`
-- 技能不是黑盒函数，而是可读可改的 `SKILL.md`
-- 前端可以直接看到流式回复、工具链路和检索证据
+核心设计理念：**让 LLM Agent 先读领域 Skill（业务策略文档），再决定如何检索，而不是盲目做向量搜索。**
 
-如果你想做一个“能解释自己为什么这样回答”的 Agent，这个仓库就是为这种方向准备的。
+- **Skill 优先**：8 个领域 Skill（法律×4 + 医疗×4）指导检索策略
+- **混合检索兜底**：Skill 结果不足时，自动 fallback 到向量 + BM25 + RRF 融合
+- **文件即事实源**：所有状态（会话、记忆、Skill、知识库）都是本地文件
+- **检索可观测**：前端实时展示 Skill 路由决策、工具调用链、检索证据来源
+
+---
+
+## 架构概览
+
+```
+用户问题
+    ↓
+Intent Router → Skill Router（legal / medical / generic）
+    ↓
+LLM 读取领域 SKILL.md（含强制路由决策 JSON）
+    ↓
+Method Router（statute / case / evidence / drug 等）
+    ↓
+LLM 调用 KB 工具（kb_search / kb_metadata_filter / kb_list_files / kb_open_chunk）
+    ↓
+{status: success / partial / not_found / uncertain}
+    ↓
+status ≠ success → 触发 Hybrid Fallback
+    ↓
+Vector 检索 + BM25 检索 → RRF 融合
+    ↓
+带引用的最终答案
+```
+
+### 两层路由
+
+| 层级 | 职责 | 输出 |
+|---|---|---|
+| **业务路由** | 判断问题属于法律 / 医疗 / 通用 | `skills/legal/...` 或 `skills/medical/...` |
+| **方法路由** | 在 SKILL.md 内按优先级表选择检索方法 | JSON：`{"method":"Comparison Hop","reason":"...","sub_queries":[...]}` |
+
+---
 
 ## 项目特点
 
-- 本地优先：后端和前端都可以直接本地启动，不依赖 MySQL / Redis
-- 文件即事实源：`memory/`、`workspace/` 和本地 `knowledge/` 都是可见、可改、可版本管理的文件
-- Prompt 可解释：系统提示词由多个 Markdown 文件实时组装
-- 技能可审计：每个技能都是 `skills/*/SKILL.md`
-- 检索可观测：前端会展示知识检索步骤、证据来源和工具调用
+### 1. 领域 Skill 可编辑
 
-## 当前能力
+8 个领域 Skill 全部以 `SKILL.md` 形式存在，不是黑盒代码：
 
-- FastAPI + SSE 流式聊天
-- 会话持久化到 `backend/sessions/*.json`
-- 长期记忆文件：`backend/memory/MEMORY.md`
-- 可切换的记忆 RAG 模式
-- 本地知识库检索
-- 前端三栏工作台
-- 在线编辑 Memory / Skills / Workspace 文件
-- 检索证据、工具调用、Raw Messages 可视化
+**法律领域**（`skills/legal/`）
+- `statute_search` — 法条原文检索
+- `case_search` — 判例检索（含 One Good Case Method）
+- `contract_clause` — 合同条款检索（基于 CUAD 41 类分类）
+- `legal_definition` — 法律术语定义检索
 
-当前内置技能包括：
+**医疗领域**（`skills/medical/`）
+- `evidence_search` — 循证医学文献检索（PICO 框架）
+- `guideline_search` — 临床指南检索
+- `drug_search` — 药品信息检索
+- `diagnosis_search` — 诊断标准检索
 
-- `rag-skill`：本地知识库检索
-- `web-search`：联网搜索
-- `get_weather`：天气查询
-- `retry-lesson-capture`：失败经验沉淀
+每个 Skill 包含：
+- **强制路由决策**：优先级表 P0-P4 + JSON 模板
+- **术语规范化映射表**：口语化表达 → 专业术语
+- **意图挖掘检查清单**：5 个自审问题
+- **查询重写策略**：PICO 拆解、同义词扩展、证据等级限定
+- **多跳检索判断**：Bridge Entity / Comparison / Temporal Chain / Special Population / Legal Element
 
-## 知识库目录说明
+### 2. Skill-First + Hybrid Fallback
 
-仓库自带示例知识库，位于 `backend/knowledge/`。
+- Skill Agent 优先执行：LLM 读取 SKILL.md → 做路由决策 → 调用 KB 工具检索
+- 当 Skill 返回 `partial` / `not_found` / `uncertain` 时，自动 fallback 到向量 + BM25
+- RRF（Reciprocal Rank Fusion）融合所有来源的证据，按融合得分排序输出
 
-其中包含：
+### 3. 零数据库本地索引
 
-- FAQ / Markdown / JSON 示例数据
-- PDF / Excel 等异构知识文件
-- 顶层和子目录的 `data_structure.md`
+- **向量索引**：LlamaIndex SimpleVectorStore（内存）+ Ollama 本地 Embedding（nomic-embed-text，768 维）
+- **BM25 索引**：自研内存 Counter 实现，支持中英文混合 tokenization
+- **无外部依赖**：不需要 MySQL / Redis / Elasticsearch
 
-你可以直接使用仓库内已有知识文件做体验，也可以继续向该目录补充自己的资料。
+### 4. 检索可观测
 
-## 知识库检索链路
+前端 Inspector 面板实时展示：
+- Skill 路由决策（读了哪个 SKILL.md）
+- 工具调用链（kb_search、kb_metadata_filter 等）
+- 每跳检索的查询和结果数量
+- 向量 / BM25 / 融合三个阶段的证据来源
 
-当前仓库已经实现了一条“Skill 优先，混合检索兜底”的知识检索链路。
+---
 
-### 已实现流程
+## 知识库
 
-```mermaid
-flowchart LR
-    U["用户问题"] --> A["Agent 识别知识库请求"]
-    A --> S["Skill Retriever Agent"]
-    S --> D{"Skill 证据是否足够?"}
-    D -- "是" --> R["直接基于 Skill 证据回答"]
-    D -- "否" --> V["向量检索"]
-    D -- "否" --> B["BM25 检索"]
-    S --> F["RRF 融合"]
-    V --> F
-    B --> F
-    F --> R
-    R --> O["返回答案与引用证据"]
-```
+真实数据集已导入 `backend/knowledge/`：
 
-### 当前实现范围
+| 数据集 | 领域 | 数量 | 说明 |
+|---|---|---|---|
+| CUAD | 法律/合同 | 5 份 | The Atticus Project 合同理解数据集 |
+| PubMedQA | 医疗/文献 | 10 份 | 医学问答数据集 |
+| 民法典 | 法律/法条 | 5 份 | 合同编、总则、物权编等 |
+| 指导案例 | 法律/判例 | 1 份 | 最高人民法院指导案例 1 号 |
 
-- `skill` 检索始终优先执行
-- 当 `skill` 结果为 `partial / not_found / uncertain` 时，才触发混合检索兜底
-- 混合检索当前由：
-  - 向量检索
-  - BM25 检索
-  - RRF 融合
-  组成
-- 当前知识索引主要覆盖 `knowledge/` 中的 `.md` 和 `.json`
-- Excel / PDF 仍主要依赖 `rag-skill` 的专门处理流程
+> 原始数据集已做 Markdown 转换，YAML frontmatter 保留元数据（pmid、year、document_type 等）。
 
-相关代码位置：
-
-- 后端入口：[backend/app.py](backend/app.py)
-- Agent 主入口：[backend/graph/agent.py](backend/graph/agent.py)
-- 知识检索编排：[backend/knowledge_retrieval/orchestrator.py](backend/knowledge_retrieval/orchestrator.py)
-- 向量 / BM25 索引：[backend/knowledge_retrieval/indexer.py](backend/knowledge_retrieval/indexer.py)
-- 混合检索：[backend/knowledge_retrieval/hybrid_retriever.py](backend/knowledge_retrieval/hybrid_retriever.py)
-- 技能检索代理：[backend/knowledge_retrieval/skill_retriever_agent.py](backend/knowledge_retrieval/skill_retriever_agent.py)
-
-## 系统结构
-
-```text
-ragclaw/
-├─ backend/
-│  ├─ api/                    # Chat、session、file、token、knowledge index 接口
-│  ├─ graph/                  # Agent、prompt、session、memory 相关逻辑
-│  ├─ knowledge/              # 仓库内置示例知识库
-│  ├─ knowledge_retrieval/    # Skill 优先 + hybrid fallback 检索链路
-│  ├─ memory/                 # 长期记忆文件
-│  ├─ scripts/                # 评测与辅助脚本
-│  ├─ sessions/               # 会话历史
-│  ├─ skills/                 # 技能目录，每个技能核心是 SKILL.md
-│  ├─ storage/                # 索引、评测产物等缓存
-│  ├─ tools/                  # terminal / read_file / python_repl / fetch_url
-│  ├─ workspace/              # SOUL / USER / AGENTS 等系统上下文组件
-│  └─ app.py                  # FastAPI 入口
-├─ frontend/
-│  ├─ src/app/                # 页面入口
-│  ├─ src/components/         # 聊天面板、检索面板、编辑器等 UI
-│  └─ src/lib/                # API 客户端与状态管理
-└─ README.md
-```
+---
 
 ## 技术栈
 
-### 后端
-
+**后端**
 - Python 3.10+
-- FastAPI
-- Uvicorn
-- LangChain 1.x
-- LlamaIndex
-- OpenAI-compatible model API
-- Ragas（用于离线评估）
+- FastAPI + Uvicorn
+- LangChain 1.x（Agent + Tool）
+- LangGraph（流式工具调用链）
+- LlamaIndex（向量索引）
+- OpenAI-compatible API（支持智谱 / 通义千问 / DeepSeek / Ollama）
 
-### 前端
-
+**前端**
 - Next.js 14
-- React 18
-- TypeScript
+- React 18 + TypeScript
 - Tailwind CSS
 - Monaco Editor
 
-## 默认模型配置
-
-代码层默认配置见 [backend/config.py](backend/config.py)：
-
-- LLM Provider: `zhipu`
-- LLM Model: `glm-5`
-- Embedding Provider: `bailian`
-- Embedding Model: `text-embedding-v4`
-
-示例环境文件 [backend/.env.example](backend/.env.example) 默认使用：
-
-- LLM Provider: `zhipu`
-- Embedding Provider: `zhipu`
-
-也支持：
-
-- `zhipu`
-- `bailian`
-- `deepseek`
-- `openai`
-
-## 环境变量
-
-示例文件见 [backend/.env.example](backend/.env.example)。
-
-当前配置读取顺序：
-
-1. 优先读取 `backend/.env`
-2. 若未配置，再回退到系统环境变量
-
-最少建议配置：
-
-```env
-LLM_PROVIDER=zhipu
-LLM_MODEL=glm-5
-ZHIPU_API_KEY=your_key
-
-EMBEDDING_PROVIDER=zhipu
-EMBEDDING_MODEL=embedding-3
-EMBEDDING_API_KEY=your_key
-
-TAVILY_API_KEY=your_key
-```
+---
 
 ## 快速开始
 
-### 1. 启动后端
+### 1. 环境准备
 
 ```powershell
 cd backend
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
-copy .env.example .env
+```
+
+配置环境变量 `backend/.env`：
+
+```env
+# LLM（示例：智谱 GLM-4.7-Flash）
+LLM_PROVIDER=zhipu
+LLM_MODEL=glm-4.7-flash
+ZHIPU_API_KEY=your_key
+
+# Embedding（示例：Ollama 本地）
+EMBEDDING_PROVIDER=openai
+EMBEDDING_MODEL=nomic-embed-text
+EMBEDDING_API_KEY=ollama
+EMBEDDING_BASE_URL=http://localhost:11434/v1
+```
+
+> 也支持 DeepSeek、通义千问、OpenAI 等。Embedding 推荐用 Ollama 本地（nomic-embed-text）避免 API 限流。
+
+### 2. 启动 Ollama（用于本地 Embedding）
+
+```powershell
+ollama pull nomic-embed-text
+ollama serve
+```
+
+### 3. 启动后端
+
+```powershell
+cd backend
 python -m uvicorn app:app --host 127.0.0.1 --port 8004 --reload
 ```
 
-后端健康检查：
+> 首次启动会自动加载已有索引（2894 chunks）。如需重建索引，调用 `POST /api/knowledge/index/rebuild`。
 
-```text
-http://127.0.0.1:8004/health
-```
-
-### 2. 启动前端
+### 4. 启动前端
 
 ```powershell
 cd frontend
@@ -204,63 +174,83 @@ npm install
 npm run dev
 ```
 
-前端默认地址：
+浏览器打开 `http://localhost:3000`。
 
-```text
-http://127.0.0.1:3000
+---
+
+## 核心代码结构
+
+```
+backend/
+├─ app.py                          # FastAPI 入口
+├─ graph/
+│  ├─ agent.py                     # Agent 管理器（工具列表、模型构建）
+│  ├─ prompt_builder.py            # 系统提示词动态组装
+│  └─ session_manager.py           # 会话持久化
+├─ knowledge_retrieval/
+│  ├─ orchestrator.py              # Skill-First + Hybrid Fallback + RRF 融合
+│  ├─ skill_retriever_agent.py     # Skill Agent（读取 SKILL.md、路由决策）
+│  ├─ indexer.py                   # 向量索引 + BM25 索引（零数据库）
+│  ├─ hybrid_retriever.py          # Vector + BM25 并行检索
+│  ├─ fusion.py                    # Reciprocal Rank Fusion
+│  └─ types.py                     # 数据模型（Evidence、RetrievalStep 等）
+├─ skills/                         # 8 个领域 Skill
+│  ├─ legal/
+│  │  ├─ statute_search/SKILL.md
+│  │  ├─ case_search/SKILL.md
+│  │  ├─ contract_clause/SKILL.md
+│  │  └─ legal_definition/SKILL.md
+│  └─ medical/
+│     ├─ evidence_search/SKILL.md
+│     ├─ guideline_search/SKILL.md
+│     ├─ drug_search/SKILL.md
+│     └─ diagnosis_search/SKILL.md
+├─ tools/
+│  ├─ kb_tools.py                  # 4 个 KB 检索工具
+│  └─ ...                          # terminal / read_file / python_repl 等
+├─ knowledge/                      # 知识库文件
+│  ├─ legal/statutes/              # 民法典各编
+│  ├─ legal/cases/                 # 指导案例
+│  ├─ legal/contracts/             # CUAD 合同
+│  └─ medical/                     # PubMedQA 文献 + 指南
+└─ scripts/
+   ├─ convert_cuad.py              # 数据集转换
+   ├─ convert_pubmedqa.py
+   ├─ rebuild_index.py
+   └─ eval_legal_skills.py         # 法律 Skill 评测脚本
 ```
 
-前端默认请求后端：
+---
 
-```text
-http://127.0.0.1:8004/api
-```
+## 评测
 
-如果后端端口不是 `8004`，可以设置：
+仓库内置法律领域评测脚本，对比 **Baseline（纯 Hybrid 检索）** vs **Skill-First + RRF Fallback**：
 
 ```powershell
-$env:NEXT_PUBLIC_API_BASE_URL="http://127.0.0.1:8010/api"
+cd backend
+python scripts/eval_legal_skills.py
 ```
 
-## 5 分钟体验路径
+评测维度：
+- **Recall@5**：ground-truth 文档是否出现在 Top-5 结果中
+- **Answer Keyword Score**：检索片段中关键术语的覆盖度
+- **Fallback Rate**：Skill 未成功时 fallback 到 hybrid 的比例
 
-1. 启动前后端，发送一条普通聊天消息，确认流式输出正常
-2. 打开右侧 Inspector，查看工具调用和 Raw Messages
-3. 试着编辑 `backend/memory/MEMORY.md`
-4. 提一个知识库问题，观察 Skill 检索和 fallback 检索是否出现
-5. 查看 `backend/sessions/*.json`，确认消息、工具和检索记录已落盘
-
-## 常用接口
-
-- `GET /health`
-- `POST /api/chat`
-- `GET /api/sessions`
-- `GET /api/files`
-- `POST /api/files`
-- `GET /api/config/rag-mode`
-- `PUT /api/config/rag-mode`
-- `GET /api/knowledge/index/status`
-- `POST /api/knowledge/index/rebuild`
-
-## 评测脚本
-
-仓库内已经包含 FAQ 检索评测相关脚本，产物会写入：
-
-- `backend/storage/eval_outputs/`
-
-适合做：
-
-- 路由命中率评测
-- FAQ 检索准确率评测
-- Ragas 指标评测
+---
 
 ## 当前边界
 
-- 更适合本地开发和研究，不是完整的生产 SaaS
-- Excel / PDF 的高级处理仍主要依赖技能链路
+- 更适合本地开发、研究和原型验证，不是完整 SaaS
+- LLM 执行多步工具调用的稳定性依赖模型能力（GLM-4.7-Flash 够用但偶有失败）
+- Excel / PDF 的高级处理仍主要依赖 Skill 链路中的专门工具
 - 混合检索当前主要覆盖 Markdown / JSON 类知识文件
-- 技能和知识链路仍在快速迭代中
+
+---
 
 ## 致谢
 
-`skill` 设计思路参考了 [ConardLi/rag-skill](https://github.com/ConardLi/rag-skill)。
+- `skill` 设计思路参考了 [ConardLi/rag-skill](https://github.com/ConardLi/rag-skill)
+- 法律检索方法参考 Harvard Law Library Legal Research Strategy
+- 医疗循证检索参考 Duke University PICO Framework
+- 多跳检索参考 HotpotQA (Yang et al., EMNLP 2018)
+- 合同条款分类基于 CUAD (The Atticus Project, NeurIPS 2021)

@@ -17,6 +17,7 @@ from graph.agent import agent_manager
 from knowledge_retrieval.hybrid_retriever import hybrid_retriever
 from knowledge_retrieval.indexer import knowledge_indexer
 from knowledge_retrieval.skill_retriever_agent import skill_retriever_agent
+from knowledge_retrieval.orchestrator import knowledge_orchestrator
 
 QUESTIONS = [
     {"id": 1, "question": "合同编中，当事人应当按照什么原则履行合同义务？", "ground_truth_paths": ["knowledge/legal/statutes/contract_law_articles.md"], "key_answer": "全面履行、诚信原则"},
@@ -42,12 +43,13 @@ def baseline_retrieve(query: str, top_k: int = 5) -> list[dict[str, Any]]:
 
 
 async def skill_retrieve(query: str, top_k: int = 5, max_retries: int = 2) -> dict[str, Any]:
+    """Full Skill-First + Fallback + RRF fusion via orchestrator."""
     for attempt in range(max_retries + 1):
-        skill_result = None
+        orchestrated = None
         try:
-            async for event in skill_retriever_agent.astream(query):
-                if event.get("type") == "skill_result":
-                    skill_result = event["result"]
+            async for event in knowledge_orchestrator.astream(query):
+                if event.get("type") == "orchestrated_result":
+                    orchestrated = event["result"]
         except Exception as exc:
             msg = str(exc)
             if "1113" in msg or "429" in msg or "rate limit" in msg.lower() or "quota" in msg.lower():
@@ -58,14 +60,24 @@ async def skill_retrieve(query: str, top_k: int = 5, max_retries: int = 2) -> di
                     continue
             return {"error": msg, "evidences": [], "status": "error"}
 
-        if skill_result is None:
-            return {"error": "No skill_result", "evidences": [], "status": "no_result"}
+        if orchestrated is None:
+            return {"error": "No orchestrated_result", "evidences": [], "status": "no_result"}
         break
 
     evidences = []
-    for ev in skill_result.get("evidences", [])[:top_k]:
-        evidences.append({"source_path": ev.get("source_path", ""), "snippet": ev.get("snippet", "")[:200], "score": ev.get("score"), "channel": "skill"})
-    return {"status": skill_result.get("status", "unknown"), "evidences": evidences}
+    for ev in orchestrated.evidences[:top_k]:
+        evidences.append({
+            "source_path": ev.source_path,
+            "snippet": ev.snippet[:200],
+            "score": ev.score,
+            "channel": ev.channel,
+        })
+    return {
+        "status": orchestrated.status,
+        "evidences": evidences,
+        "fallback_used": orchestrated.fallback_used,
+        "reason": orchestrated.reason,
+    }
 
 
 def check_recall(retrieved_paths: list[str], ground_truth_paths: list[str]) -> bool:
@@ -93,10 +105,11 @@ async def main() -> None:
 
         skill = await skill_retrieve(q["question"], top_k=5)
         if "error" in skill:
-            print(f"  [Skill] ERROR: {skill['error']}")
+            print(f"  [Skill+RRF] ERROR: {skill['error']}")
         else:
             skill_paths = [e["source_path"] for e in skill["evidences"]]
-            print(f"  [Skill] status={skill['status']}, recall={check_recall(skill_paths, q['ground_truth_paths'])}, paths={skill_paths}")
+            fb = "(fallback+RRF)" if skill.get("fallback_used") else "(skill-only)"
+            print(f"  [Skill+RRF] status={skill['status']} {fb}, recall={check_recall(skill_paths, q['ground_truth_paths'])}, paths={skill_paths}")
 
         if i < len(QUESTIONS):
             print("  [Sleep] 15s...")
