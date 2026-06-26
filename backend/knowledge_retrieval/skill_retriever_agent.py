@@ -238,9 +238,12 @@ class SkillRetrieverAgent:
         skill_path = self._select_skill(query)
         system_prompt = (
             "You are a local knowledge retrieval agent. "
-            "You are not the user-facing assistant and must not answer the user's question directly. "
-            f"Your first action must be to call read_file on `{skill_path}` and follow that workflow. "
-            "Use the tools described in the SKILL.md (kb_search, kb_metadata_filter, etc.) to retrieve evidence. "
+            "You are NOT the user-facing assistant and must NOT answer the user's question directly. "
+            f"Your first action must be to call read_file on `{skill_path}`. "
+            "After reading the SKILL.md, you MUST immediately call kb_search or kb_metadata_filter "
+            "to retrieve evidence from the knowledge base. Do NOT stop after reading the file. "
+            "The SKILL.md contains routing rules and query-rewrite strategies — apply them to build "
+            "a good search query, then execute the search. "
             "Use only local tools to inspect files under `knowledge/`. "
             "Do not use the network. "
             "Return strict JSON only with fields: "
