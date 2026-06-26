@@ -27,7 +27,8 @@ async def lifespan(_: FastAPI):
     memory_indexer.configure(settings.backend_dir)
     memory_indexer.rebuild_index()
     knowledge_indexer.configure(settings.backend_dir)
-    knowledge_indexer.rebuild_index()
+    if not knowledge_indexer.status().ready:
+        knowledge_indexer.rebuild_index()
     yield
 
 

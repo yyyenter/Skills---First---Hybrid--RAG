@@ -16,6 +16,35 @@ from tools.terminal_tool import TerminalTool
 JSON_BLOCK_PATTERN = re.compile(r"```json\s*(\{.*?\})\s*```", re.DOTALL)
 PATH_PATTERN = re.compile(r"(?:(?:skills|knowledge|workspace|memory|storage|api|graph|tools)/[^\s\"'`]+)")
 
+# Domain-to-skill routing keywords
+_DOMAIN_KEYWORDS: dict[str, list[str]] = {
+    "legal": [
+        "合同", "民法典", "案例", "判例", "法条", "法律", "法院", "诉讼", "违约",
+        "解除", "赔偿", "侵权", "条款", "协议", "判决", "裁判", "居间", "跳单",
+        "分销商", "独家", "原告", "被告", "纠纷", "一审", "二审",
+    ],
+    "medical": [
+        "药物", "药品", "诊断", "指南", "循证", "医学", "治疗", "病症", "副作用",
+        "剂量", "疗效", "临床", "推荐", "用药", "禁忌", "适应症", "RCT", "Meta",
+        "系统综述", "检查", "分型", "分期", "鉴别诊断", "正常值", "标准治疗",
+    ],
+}
+
+_SKILL_KEYWORDS: dict[str, dict[str, list[str]]] = {
+    "legal": {
+        "statute_search": ["法条", "条文", "规定", "民法典第", "法律怎么规定", "依据什么法", "哪条规定", "通则"],
+        "case_search": ["案例", "判例", "指导案例", "法院判决", "裁判结果", "一审", "二审", "原告", "被告", "诉", "纠纷", "跳单"],
+        "contract_clause": ["合同条款", "协议条款", "合同约定", "分销商", "独家", "许可", "renewal", "term", "agreement"],
+        "legal_definition": ["定义", "概念", "含义", "什么是", "指的是", "什么叫"],
+    },
+    "medical": {
+        "evidence_search": ["证据", "循证", "RCT", "Meta", "系统综述", "研究", "临床试验", "证据等级"],
+        "guideline_search": ["指南", "诊疗规范", "推荐等级", "标准治疗", "管理策略"],
+        "drug_search": ["药物", "药品", "剂量", "副作用", "禁忌", "适应症", "用法用量", "相互作用"],
+        "diagnosis_search": ["诊断", "分型", "分期", "鉴别诊断", "检查", "标准", "正常值"],
+    },
+}
+
 
 class SkillRetrieverAgent:
     def __init__(self) -> None:
@@ -72,6 +101,40 @@ class SkillRetrieverAgent:
             if isinstance(path_value, str):
                 add_path(path_value)
         return paths
+
+    def _select_skill(self, query: str) -> str:
+        """Route query to the most appropriate domain SKILL.md."""
+        q = query.lower()
+
+        # 1. Detect domain
+        matched_domain: str | None = None
+        for domain, keywords in _DOMAIN_KEYWORDS.items():
+            if any(kw in q for kw in keywords):
+                matched_domain = domain
+                break
+
+        if matched_domain is None:
+            return "skills/rag-skill/SKILL.md"
+
+        # 2. Detect specific skill within domain
+        domain_skills = _SKILL_KEYWORDS.get(matched_domain, {})
+        best_skill: str | None = None
+        best_score = 0
+        for skill_name, keywords in domain_skills.items():
+            score = sum(1 for kw in keywords if kw in q)
+            if score > best_score:
+                best_score = score
+                best_skill = skill_name
+
+        if best_skill:
+            return f"skills/{matched_domain}/{best_skill}/SKILL.md"
+
+        # Fallback to domain's first skill if no specific match
+        first_skill = next(iter(domain_skills), None)
+        if first_skill:
+            return f"skills/{matched_domain}/{first_skill}/SKILL.md"
+
+        return "skills/rag-skill/SKILL.md"
 
     def _normalize_types(self, value: Any, evidences: list[Evidence], searched_paths: list[str]) -> list[str]:
         candidates: list[str] = []
@@ -172,10 +235,12 @@ class SkillRetrieverAgent:
         if self.base_dir is None or self._model_builder is None:
             raise RuntimeError("SkillRetrieverAgent is not configured")
 
+        skill_path = self._select_skill(query)
         system_prompt = (
             "You are a local knowledge retrieval agent. "
             "You are not the user-facing assistant and must not answer the user's question directly. "
-            "Your first action must be to call read_file on `skills/rag-skill/SKILL.md` and follow that workflow. "
+            f"Your first action must be to call read_file on `{skill_path}` and follow that workflow. "
+            "Use the tools described in the SKILL.md (kb_search, kb_metadata_filter, etc.) to retrieve evidence. "
             "Use only local tools to inspect files under `knowledge/`. "
             "Do not use the network. "
             "Return strict JSON only with fields: "
