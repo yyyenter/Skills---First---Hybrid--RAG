@@ -61,10 +61,19 @@ class _LangChainEmbeddingAdapter(BaseEmbedding):
         return self._client.embed_query(text)
 
     def _get_text_embeddings(self, texts: list[str]) -> list[list[float]]:
-        return self._client.embed_documents(texts)
+        # Ollama: small batches with brief sleep to avoid hanging
+        import time
+        batch_size = 5
+        results = []
+        for i in range(0, len(texts), batch_size):
+            batch = texts[i : i + batch_size]
+            results.extend(self._client.embed_documents(batch))
+            if i + batch_size < len(texts):
+                time.sleep(0.2)
+        return results
 
     async def _aget_text_embeddings(self, texts: list[str]) -> list[list[float]]:
-        return self._client.embed_documents(texts)
+        return self._get_text_embeddings(texts)
 
 
 class KnowledgeIndexer:
@@ -300,9 +309,14 @@ class KnowledgeIndexer:
         return chunks
 
     def _write_manifest(self) -> None:
+        # Strip heavy fields (tokens, parent_text) to avoid MemoryError on large corpora
+        slim_docs = []
+        for item in self._documents:
+            slim = {k: v for k, v in item.items() if k not in ("tokens", "parent_text")}
+            slim_docs.append(slim)
         payload = {
             "built_at": time.time(),
-            "documents": self._documents,
+            "documents": slim_docs,
         }
         self._manifest_path.write_text(
             json.dumps(payload, ensure_ascii=False, indent=2),
@@ -367,7 +381,10 @@ class KnowledgeIndexer:
             self._vector_index = VectorStoreIndex.from_documents(documents)
             self._vector_index.storage_context.persist(persist_dir=str(self._vector_dir))
             self._vector_ready = True
-        except Exception:
+        except Exception as exc:
+            import traceback
+            print(f"[Vector Index Build Error] {exc}")
+            traceback.print_exc()
             self._vector_index = None
             self._vector_ready = False
 

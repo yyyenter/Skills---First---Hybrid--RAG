@@ -5,6 +5,7 @@ from pathlib import Path
 from langchain_core.tools import BaseTool
 
 from tools.fetch_url_tool import FetchURLTool
+from tools.kb_tools import KBListFilesTool, KBMetadataFilterTool, KBOpenChunkTool, KBSearchTool
 from tools.python_repl_tool import PythonReplTool
 from tools.read_file_tool import ReadFileTool
 from tools.terminal_tool import TerminalTool
@@ -16,4 +17,8 @@ def get_all_tools(base_dir: Path) -> list[BaseTool]:
         PythonReplTool(root_dir=base_dir),
         FetchURLTool(),
         ReadFileTool(root_dir=base_dir),
+        KBSearchTool(),
+        KBMetadataFilterTool(),
+        KBListFilesTool(),
+        KBOpenChunkTool(),
     ]

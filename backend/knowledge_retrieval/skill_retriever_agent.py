@@ -7,6 +7,7 @@ from typing import Any, AsyncIterator
 from langchain.agents import create_agent
 
 from knowledge_retrieval.types import Evidence, SkillRetrievalResult
+from tools.kb_tools import KBListFilesTool, KBMetadataFilterTool, KBOpenChunkTool, KBSearchTool
 from tools.python_repl_tool import PythonReplTool
 from tools.read_file_tool import ReadFileTool
 from tools.terminal_tool import TerminalTool
@@ -187,6 +188,10 @@ class SkillRetrieverAgent:
             TerminalTool(root_dir=self.base_dir),
             PythonReplTool(root_dir=self.base_dir),
             ReadFileTool(root_dir=self.base_dir),
+            KBSearchTool(),
+            KBMetadataFilterTool(),
+            KBListFilesTool(),
+            KBOpenChunkTool(),
         ]
         agent = create_agent(
             model=self._model_builder(),

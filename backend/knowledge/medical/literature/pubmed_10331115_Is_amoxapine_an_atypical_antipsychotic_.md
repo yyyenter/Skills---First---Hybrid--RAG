@@ -1,0 +1,27 @@
+---
+pmid: "10331115"
+document_type: literature
+year: 1999
+meshes: ["Adult", "Amoxapine", "Brain", "Female", "Humans", "Male", "Psychotic Disorders", "Receptors, Dopamine D2", "Receptors, Serotonin", "Tomography, Emission-Computed"]
+final_decision: yes
+---
+
+# 研究问题
+
+Is amoxapine an atypical antipsychotic?
+
+# BACKGROUND
+
+All currently available atypical antipsychotics have, at clinically relevant doses: i) high serotonin (5-HT)2 occupancy; ii) greater 5-HT2 than dopamine (D)2 occupancy; and iii) a higher incidence of extrapyramidal side effects when their D2 occupancy exceeds 80%. A review of pharmacologic and behavioral data suggested that amoxapine should also conform to this profile; therefore, we undertook a positron-emission tomography (PET) study of its 5-HT2 and D2 occupancy.
+
+# METHODS
+
+Seven healthy volunteers received 50-250 mg/day of amoxapine for 5 days and then had [11C]-raclopride and [18F]-setoperone PET scans.
+
+# RESULTS
+
+5-HT2 receptors showed near saturation at doses of 100 mg/day and above. The D2 receptor occupancies showed a dose-dependent increase, never exceeding 80%; at all doses 5-HT2 occupancy exceeded D2 occupancy.
+
+# 详细答案
+
+PET data show that amoxapine's profile is very similar to that of the established atypical antipsychotics. These data, together with amoxapine's in vitro pharmacologic profile, effectiveness in animal models, and efficacy in psychotic depression raise the possibility of amoxapine as an "atypical" antipsychotic agent in the treatment of schizophrenia.
