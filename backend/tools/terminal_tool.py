@@ -51,25 +51,39 @@ class TerminalTool(BaseTool):
             return "Blocked: command matches the terminal blacklist."
 
         settings = get_settings()
-        shell_command = (
-            ["powershell", "-NoProfile", "-Command", command]
-            if platform.system().lower().startswith("win")
-            else ["bash", "-lc", command]
-        )
+        is_windows = platform.system().lower().startswith("win")
+        if is_windows:
+            # Force PowerShell to emit UTF-8 stdout/stderr instead of the
+            # zh-CN system codepage (GBK/CP936). The prelude survives across
+            # Out-* calls within the same `-Command` block.
+            ps_prelude = (
+                "$OutputEncoding = [System.Text.UTF8Encoding]::new();"
+                "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new();"
+                "$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
+                "chcp 65001 > $null;"
+            )
+            shell_command = ["powershell", "-NoProfile", "-Command", ps_prelude + command]
+        else:
+            shell_command = ["bash", "-lc", command]
         try:
             completed = subprocess.run(
                 shell_command,
                 cwd=self._root_dir,
                 capture_output=True,
-                text=True,
+                # On Windows, Python's text=True decodes with the locale codec
+                # (GBK), which dies on UTF-8 bytes in non-Chinese content
+                # (curly quotes, em-dash, etc.). Read raw bytes and decode
+                # manually with errors="replace" to be safe.
+                text=False,
                 timeout=settings.terminal_timeout_seconds,
                 check=False,
             )
         except subprocess.TimeoutExpired:
             return "Timed out after 30 seconds."
 
-        combined = (completed.stdout or "") + (completed.stderr or "")
-        combined = combined.strip() or "[no output]"
+        stdout = (completed.stdout or b"").decode("utf-8", errors="replace")
+        stderr = (completed.stderr or b"").decode("utf-8", errors="replace")
+        combined = (stdout + stderr).strip() or "[no output]"
         return combined[:5000]
 
     async def _arun(

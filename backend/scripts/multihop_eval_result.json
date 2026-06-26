@@ -1,0 +1,1683 @@
+{
+  "sample_meta": {
+    "seed": 42,
+    "sample_size": 30,
+    "sample_per_type": {
+      "inference_query": 10,
+      "comparison_query": 10,
+      "temporal_query": 7,
+      "null_query": 3
+    }
+  },
+  "pure_rag": [
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Ange_aghast_as_Spurs_suffer_‘unbelievable’_West_Ham_turnaround_–_with_two_of_the.md",
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/European_football__Eintracht_Frankfurt_hit_Bayern_for_five_in_famous_thrashing.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Ange_aghast_as_Spurs_suffer_‘unbelievable’_West_Ham_turnaround_–_with_two_of_the.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Ange_aghast_as_Spurs_suffer_‘unbelievable’_West_Ham_turnaround_–_with_two_of_the.md",
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/European_football__Eintracht_Frankfurt_hit_Bayern_for_five_in_famous_thrashing.md"
+      ],
+      "elapsed": 2.9395415782928467,
+      "id": 0,
+      "query": "Does 'The Guardian' article about the 'Everton team' suggest they are in a worse position in the Premier League compared to 'Bayern Munich' as discussed in another 'The Guardian' article, based on their respective league standings and points?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/European_football__Eintracht_Frankfurt_hit_Bayern_for_five_in_famous_thrashing.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md",
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "elapsed": 1.0124671459197998,
+      "id": 1,
+      "query": "Considering the excerpts from TechCrunch, does the report on the UK's policy inconsistency published on October 13th, 2023, agree or disagree with the importance of government support for technology as highlighted by the growth of the tech industry in Palestine before it was impacted by conflict, as reported on October 14th, 2023?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/‘Latin_artists_have_been_paving_the_way_for_deals_that_offer_more_control,_trans.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/‘Latin_artists_have_been_paving_the_way_for_deals_that_offer_more_control,_trans.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "elapsed": 0.9367034435272217,
+      "id": 2,
+      "query": "Does the article from Wired suggest that Sony headphones offer the best value in their class during the Walmart Cyber Monday Deals, while the article from Music Business Worldwide indicates that Artists are seeking deals that offer more control and better economics, or do both articles suggest a common trend in seeking value and control in their respective fields?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/‘Latin_artists_have_been_paving_the_way_for_deals_that_offer_more_control,_trans.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "elapsed": 0.9922878742218018,
+      "id": 3,
+      "query": "Do 'The Verge' and 'Engadget' articles both suggest that 'Consumers' can find guidance or deals on tech products, while the 'TechCrunch' article proposes a different interest of 'Consumers' in the realm of social networking?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.6666666666666666,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Gen_Z_just_saw_the_worst_war_in_Israel_in_50_years_break_out_all_over_the_intern.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/Gen_Z_just_saw_the_worst_war_in_Israel_in_50_years_break_out_all_over_the_intern.md",
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md"
+      ],
+      "elapsed": 1.0589714050292969,
+      "id": 4,
+      "query": "Does the Fortune article attribute the cause of the worst war in Israel in 50 years to actions taken by Israel, while the TechCrunch article focuses on Paddy Cosgrave's public fight regarding the support for Israel in the conflict?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Gen_Z_just_saw_the_worst_war_in_Israel_in_50_years_break_out_all_over_the_intern.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md"
+      ],
+      "elapsed": 1.0276987552642822,
+      "id": 5,
+      "query": "Between the TechCrunch report on Epic Games' antitrust battle with Google published on November 6, 2023, and the TechCrunch report on the class action antitrust suit against Google published on December 15, 2023, was there inconsistency in reporting Google's engagement in anticompetitive behavior?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md"
+      ],
+      "elapsed": 0.967994213104248,
+      "id": 6,
+      "query": "Does 'The Verge' claim that Google has the ability to resolve issues related to Android app distribution and in-app payment systems, while 'TechCrunch' accuses Google of anticompetitive behavior towards news publishers, indicating a difference in Google's impact on different industries?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.6666666666666666,
+      "recall@10": 0.6666666666666666,
+      "mrr": 0.3333333333333333
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "elapsed": 1.1778497695922852,
+      "id": 7,
+      "query": "Who is the individual that, before the FTX collapse, was seen as a trustworthy figure in the cryptocurrency industry, convinced a colleague from Jane Street to join his ventures, decided to use a substantial amount of customer funds to settle with a competitor, and is now facing allegations of fraud for personal gain according to reports from The Verge, Fortune, and TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.75,
+      "recall@10": 0.75,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md"
+      ],
+      "vector_paths": [
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md"
+      ],
+      "bm25_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md"
+      ],
+      "elapsed": 1.0698039531707764,
+      "id": 8,
+      "query": "Based on the information from a New York Times article and a Wall Street Journal report on Synchrony Financial, which letter represents the first initial of the CEO who discussed the company's strategic partnerships in the former and was mentioned in relation to the company's quarterly earnings growth in the latter?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md"
+      ],
+      "elapsed": 1.980130910873413,
+      "id": 9,
+      "query": "Does 'The Roar | Sports Writers Blog' suggest that 'The All Blacks' motivation for playing is different from the Springboks' as per the first article, while also indicating that 'The All Blacks' handling was compromised by external factors in the second article, and does it confirm 'The All Blacks' losses to Argentina as stated in the third article?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/data_structure.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/data_structure.md"
+      ],
+      "elapsed": 1.755246877670288,
+      "id": 10,
+      "query": "What company is at the center of claims involving manipulation of search results to maximize ad revenue according to Megan Grey in 'The Age', ranking local search results based on relevance, distance, and prominence as reported by 'The Verge', and is accused by a news publisher in a class action antitrust suit covered by 'TechCrunch' for harming their bottom line through anticompetitive practices?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "elapsed": 1.7768218517303467,
+      "id": 11,
+      "query": "Does the TechCrunch article claim that Sam Bankman-Fried directed Caroline Ellison to use customer funds for debt repayment, while the Fortune article focuses on Sam Bankman-Fried's persuasion of Adam Yedidia to join his ventures, and does the second TechCrunch article allege that Sam Bankman-Fried's motivation for committing fraud was personal gain?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 1,
+      "recall@5": 0.0,
+      "recall@10": 0.3333333333333333,
+      "mrr": 0.16666666666666666
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "elapsed": 1.7216086387634277,
+      "id": 12,
+      "query": "Was the reporting on the operating hours of Starbucks stores on Thanksgiving by 'The Independent - Life and Style' after November 6, 2023, inconsistent with the information provided about the date of Thanksgiving in 2023 in a later article by the same source?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md"
+      ],
+      "elapsed": 1.9228882789611816,
+      "id": 13,
+      "query": "Who is the individual that has become a significant figure in the realm of artificial intelligence, particularly due to their association with generative AI technology and the envisioning of AI agents to assist with various tasks, and whose integrity was questioned by a prevailing theory as mentioned in articles from both Fortune and TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.5,
+      "recall@10": 0.5,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md",
+        "knowledge/multihop-news/The_story_behind_anguished_Wallabies_star's_photo.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md",
+        "knowledge/multihop-news/The_story_behind_anguished_Wallabies_star's_photo.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md"
+      ],
+      "elapsed": 1.8532118797302246,
+      "id": 14,
+      "query": "Does the 'Sporting News' article claim that the England national rugby union team has had the same path to the Rugby World Cup semifinal compared to the path of The Wallabies (Australian national rugby union team) as implied by the 'Wide World Of Sports' article, with England defeating specific teams and The Wallabies' fate depending on a match between other teams?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md",
+        "knowledge/multihop-news/The_story_behind_anguished_Wallabies_star's_photo.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md",
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md",
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "elapsed": 1.8965497016906738,
+      "id": 15,
+      "query": "Which football club, recently discussed in articles from 'The Guardian', 'The Roar | Sports Writers Blog', and 'BBC News - Entertainment & Arts', had a significant change in league position due to a points penalty after a series of wins, and is recognized for its history and community importance as emphasized by Farhad Moshiri following an introduction by its late chairman Bill Kenwright?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Ange_aghast_as_Spurs_suffer_‘unbelievable’_West_Ham_turnaround_–_with_two_of_the.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.6666666666666666,
+      "recall@10": 0.6666666666666666,
+      "mrr": 0.3333333333333333
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md"
+      ],
+      "elapsed": 2.2020928859710693,
+      "id": 16,
+      "query": "Who is the individual that presented himself as a trustworthy figure in the cryptocurrency industry according to The Verge, was informed about a significant financial discrepancy after a judge's intervention, and is alleged by the prosecution in a TechCrunch article to have committed fraud for personal gains?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.3333333333333333,
+      "recall@10": 0.3333333333333333,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Prop_Betting_-_What_is_a_Prop_Bet.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Prop_Betting_-_What_is_a_Prop_Bet.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "elapsed": 1.8225994110107422,
+      "id": 17,
+      "query": "Has the 'Sporting News' maintained consistency in its explanation of sports betting terms, specifically regarding 'Bettors who wager on the \"over\"' before November 6, 2023, as compared to its earlier report on November 1, 2023?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Prop_Betting_-_What_is_a_Prop_Bet.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.3333333333333333
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md"
+      ],
+      "elapsed": 1.806854248046875,
+      "id": 18,
+      "query": "Who is the individual associated with FTX, who, according to reports from 'Cnbc | World Business News Leader', 'The Verge', 'TechCrunch', and another 'TechCrunch' article, planned to establish a board with experts for his company, struggled with managing the significant growth of his company alongside Alameda Research, was implicated in directing a $14 billion customer fund misappropriation, and is alleged by the prosecution to have committed fraud for personal gain?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.5,
+      "recall@10": 0.75,
+      "mrr": 0.25
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md"
+      ],
+      "elapsed": 1.6139183044433594,
+      "id": 19,
+      "query": "Who is the individual under 30, once considered the richest in that age bracket, who has pleaded not guilty to fraud and conspiracy charges and is accused by the prosecution of committing fraud to achieve wealth, power, and influence, as reported by TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "elapsed": 1.7595741748809814,
+      "id": 20,
+      "query": "Which pop star, who is open about her relationship with a Chiefs TE and is unaffected by paparazzi attention, has a busy schedule with the Eras Tour and received a friendship bracelet with his number from her partner, as reported by 'The Independent - Life and Style' and 'CBSSports.com'?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Travis_Kelce_faces_backlash_after_comments_about_‘finding_a_breeder’_resurface_a.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.75,
+      "recall@10": 0.75,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "elapsed": 1.6446757316589355,
+      "id": 21,
+      "query": "Does the article from The Verge suggest that a GameStop gift card is a universally useless gift for gamers regardless of console preference, while the Polygon article recommends specific Nintendo Switch games, indicating a more targeted gift approach for owners of that console?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md"
+      ],
+      "elapsed": 3.2746119499206543,
+      "id": 22,
+      "query": "Does the article from 'The Independent - Life and Style' claim that Taylor Swift is secretive about her relationship with a specific individual, in contrast to the 'CBSSports.com' article which discusses her rumored romance but focuses on her attendance and performance at a specific venue?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md"
+      ],
+      "elapsed": 1.7825281620025635,
+      "id": 23,
+      "query": "Did The Age report on November 7, 2023, contradict the allegations of Donald Trump's financial misrepresentations after the report by Fortune on September 26, 2023, claiming Donald Trump inflated the value of his Trump Tower apartment?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md"
+      ],
+      "elapsed": 1.734731674194336,
+      "id": 24,
+      "query": "Which company, according to TechCrunch articles, invested billions to secure its status as the default search engine on various platforms and is also accused of harming news publishers' revenue streams through anticompetitive practices?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md"
+      ],
+      "elapsed": 1.7795746326446533,
+      "id": 25,
+      "query": "Considering the information from a BBC News article detailing TomTom's latest strategic partnership and a Reuters report on TomTom's financial performance in the last quarter, which European country, home to TomTom's headquarters, is both the location of the new strategic partner's primary operations and also where TomTom reported a significant increase in consumer sales?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/54_Best_Apple_Black_Friday_Deals_(2023)__iPad,_Apple_Watch,_AirPods.md",
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/54_Best_Apple_Black_Friday_Deals_(2023)__iPad,_Apple_Watch,_AirPods.md",
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "elapsed": 1.7051658630371094,
+      "id": 26,
+      "query": "Between the report from 'The Verge' on 2023-11-24 and the report from 'Wired' on 2023-11-25, is there consistency in the focus on the utility of charging devices such as 'Universal travel adapters' and '10,000-mAh capacity power bank' during Black Friday sales?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/54_Best_Apple_Black_Friday_Deals_(2023)__iPad,_Apple_Watch,_AirPods.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md"
+      ],
+      "elapsed": 1.7180085182189941,
+      "id": 27,
+      "query": "Which company, known for ranking local search results based on relevance, distance, and prominence according to an article from The Verge, is also mentioned in two TechCrunch articles, one discussing the lack of planned additional measures for a video platform in the next six months, and the other citing a class action antitrust suit for siphoning off content, readers, and ad revenue from news publishers?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.6666666666666666,
+      "recall@10": 0.6666666666666666,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md",
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "elapsed": 1.738893985748291,
+      "id": 28,
+      "query": "Considering the information from an article by The Times of India and another by The Hindustan Times on Jaya Bachchan, which character from a film discussed in both articles is portrayed by an actor who has also served as a member of the Rajya Sabha?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md"
+      ],
+      "vector_paths": [],
+      "bm25_paths": [
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md",
+        "knowledge/multihop-news/data_structure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md"
+      ],
+      "elapsed": 1.7646384239196777,
+      "id": 29,
+      "query": "Has the narrative around the All Blacks' team focus and performance in The Roar | Sports Writers Blog articles changed from the report defending a star centre after a loss to Argentina to the analysis of their playing for individual accolades, and finally to their actions in the dramatic final against the Springboks?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    }
+  ],
+  "with_skill": [
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/European_football__Eintracht_Frankfurt_hit_Bayern_for_five_in_famous_thrashing.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found both Guardian articles with explicit league standings and points data for direct comparison",
+      "elapsed": 70.676589012146,
+      "error": null,
+      "id": 0,
+      "query": "Does 'The Guardian' article about the 'Everton team' suggest they are in a worse position in the Premier League compared to 'Bayern Munich' as discussed in another 'The Guardian' article, based on their respective league standings and points?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/European_football__Eintracht_Frankfurt_hit_Bayern_for_five_in_famous_thrashing.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK's_U-turn.md",
+        "knowledge/multihop-news/Palestine's_growing_tech_industry_has_been_literally_blown_apart_by_Israel's_war.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found both TechCrunch articles with clear evidence to answer the comparison question about government support for technology.",
+      "elapsed": 112.01057076454163,
+      "error": null,
+      "id": 1,
+      "query": "Considering the excerpts from TechCrunch, does the report on the UK's policy inconsistency published on October 13th, 2023, agree or disagree with the importance of government support for technology as highlighted by the growth of the tech industry in Palestine before it was impacted by conflict, as reported on October 14th, 2023?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Consistent_policy_is_key_to_unlocking_the_climate_tech_boom,_but_the_UK’s_U-turn.md",
+        "knowledge/multihop-news/Palestine’s_growing_tech_industry_has_been_literally_blown_apart_by_Israel’s_war.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/'Latin_artists_have_been_paving_the_way_for_deals_that_offer_more_control,_trans.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found both articles with clear evidence about Sony headphones value proposition and artists seeking control in deals. The articles represent parallel but distinct trends in their respective fields.",
+      "elapsed": 212.03767728805542,
+      "error": null,
+      "id": 2,
+      "query": "Does the article from Wired suggest that Sony headphones offer the best value in their class during the Walmart Cyber Monday Deals, while the article from Music Business Worldwide indicates that Artists are seeking deals that offer more control and better economics, or do both articles suggest a common trend in seeking value and control in their respective fields?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/These_Are_Our_Favorite_Walmart_Cyber_Monday_Deals.md",
+        "knowledge/multihop-news/‘Latin_artists_have_been_paving_the_way_for_deals_that_offer_more_control,_trans.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.5,
+      "recall@10": 0.5,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md",
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found all three articles from The Verge, Engadget, and TechCrunch. The Verge and Engadget articles clearly focus on helping consumers find deals and guidance on tech products (headphones, earbuds, Apple devices), while the TechCrunch article discusses consumers' interest in a new form of decentralized social networking.",
+      "elapsed": 82.04352140426636,
+      "error": null,
+      "id": 3,
+      "query": "Do 'The Verge' and 'Engadget' articles both suggest that 'Consumers' can find guidance or deals on tech products, while the 'TechCrunch' article proposes a different interest of 'Consumers' in the realm of social networking?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Why_Mozilla_is_betting_on_a_decentralized_social_networking_future.md",
+        "knowledge/multihop-news/Here_are_the_best_deals_on_headphones_and_wireless_earbuds_we_could_find.md",
+        "knowledge/multihop-news/The_best_Apple_Black_Friday_deals_on_iPads,_AirPods,_Apple_Watches_and_more.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Gen_Z_just_saw_the_worst_war_in_Israel_in_50_years_break_out_all_over_the_intern.md",
+        "knowledge/multihop-news/WebSummit_derailed_by_founder's_public_fight_with_those_supporting_Israel_in_Ham.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found both articles. The Fortune article attributes the war to Hamas's attack on Israel, not to Israel's actions. The TechCrunch article accurately focuses on Paddy Cosgrave's public fight regarding support for Israel.",
+      "elapsed": 94.74101209640503,
+      "error": null,
+      "id": 4,
+      "query": "Does the Fortune article attribute the cause of the worst war in Israel in 50 years to actions taken by Israel, while the TechCrunch article focuses on Paddy Cosgrave's public fight regarding the support for Israel in the conflict?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/WebSummit_derailed_by_founder’s_public_fight_with_those_supporting_Israel_in_Ham.md",
+        "knowledge/multihop-news/Gen_Z_just_saw_the_worst_war_in_Israel_in_50_years_break_out_all_over_the_intern.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.5,
+      "recall@10": 0.5,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games'_antitrust_battle_with_Google,_star.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI's_har.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found both TechCrunch articles in the knowledge base. The November 6, 2023 article reports on the START of the Epic v. Google trial, presenting Epic's allegations as claims to be proven. The December 15, 2023 article reports on a NEW class action lawsuit and references the Epic verdict as established fact. Both articles consistently treat anticompetitive behavior allegations as legal claims requiring adjudication.",
+      "elapsed": 122.55590057373047,
+      "error": null,
+      "id": 5,
+      "query": "Between the TechCrunch report on Epic Games' antitrust battle with Google published on November 6, 2023, and the TechCrunch report on the class action antitrust suit against Google published on December 15, 2023, was there inconsistency in reporting Google's engagement in anticompetitive behavior?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md",
+        "knowledge/multihop-news/What_to_know_about_Fortnite_maker_Epic_Games’_antitrust_battle_with_Google,_star.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic's_victory_royale_over_Google.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI's_har.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found direct evidence from both The Verge and TechCrunch articles that support the user's query about Google's different impacts on different industries.",
+      "elapsed": 167.26979804039001,
+      "error": null,
+      "id": 6,
+      "query": "Does 'The Verge' claim that Google has the ability to resolve issues related to Android app distribution and in-app payment systems, while 'TechCrunch' accuses Google of anticompetitive behavior towards news publishers, indicating a difference in Google's impact on different industries?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Apple_defends_Google_Search_deal_in_court__‘There_wasn’t_a_valid_alternative’.md",
+        "knowledge/multihop-news/Tim_Sweeney_on_Epic’s_victory_royale_over_Google.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_'man'_or_a_good_'boy'__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse's_courtroom_drama.md"
+      ],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "success",
+      "skill_reason": "Found comprehensive evidence across three articles from The Verge, Fortune, and TechCrunch that directly answer all aspects of the question about Sam Bankman-Fried.",
+      "elapsed": 130.57718920707703,
+      "error": null,
+      "id": 7,
+      "query": "Who is the individual that, before the FTX collapse, was seen as a trustworthy figure in the cryptocurrency industry, convinced a colleague from Jane Street to join his ventures, decided to use a substantial amount of customer funds to settle with a competitor, and is now facing allegations of fraud for personal gain according to reports from The Verge, Fortune, and TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Bankman-Fried_was_a_terrible_boyfriend.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md"
+      ],
+      "hit@5": 1,
+      "hit@10": 1,
+      "recall@5": 0.5,
+      "recall@10": 0.5,
+      "mrr": 1.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 167.5771849155426,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 8,
+      "query": "Based on the information from a New York Times article and a Wall Street Journal report on Synchrony Financial, which letter represents the first initial of the CEO who discussed the company's strategic partnerships in the former and was mentioned in relation to the company's quarterly earnings growth in the latter?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9456024169921875,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 9,
+      "query": "Does 'The Roar | Sports Writers Blog' suggest that 'The All Blacks' motivation for playing is different from the Springboks' as per the first article, while also indicating that 'The All Blacks' handling was compromised by external factors in the second article, and does it confirm 'The All Blacks' losses to Argentina as stated in the third article?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.7728853225708008,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 10,
+      "query": "What company is at the center of claims involving manipulation of search results to maximize ad revenue according to Megan Grey in 'The Age', ranking local search results based on relevance, distance, and prominence as reported by 'The Verge', and is accused by a news publisher in a class action antitrust suit covered by 'TechCrunch' for harming their bottom line through anticompetitive practices?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/Is_Google_Search_better_than_the_rest__And_is_that_fair.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.81843900680542,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 11,
+      "query": "Does the TechCrunch article claim that Sam Bankman-Fried directed Caroline Ellison to use customer funds for debt repayment, while the Fortune article focuses on Sam Bankman-Fried's persuasion of Adam Yedidia to join his ventures, and does the second TechCrunch article allege that Sam Bankman-Fried's motivation for committing fraud was personal gain?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Is_Sam_Bankman-Fried_a_bad_‘man’_or_a_good_‘boy’__Lawyers_swap_opening_statement.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9153847694396973,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 12,
+      "query": "Was the reporting on the operating hours of Starbucks stores on Thanksgiving by 'The Independent - Life and Style' after November 6, 2023, inconsistent with the information provided about the date of Thanksgiving in 2023 in a later article by the same source?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Thanksgiving_2023__What_stores_will_be_open_on_the_holiday.md",
+        "knowledge/multihop-news/From_a_Turkey_trot_to_a_movie_marathon,_Friendsgiving_celebrations_that_aren’t_a.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.8035187721252441,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 13,
+      "query": "Who is the individual that has become a significant figure in the realm of artificial intelligence, particularly due to their association with generative AI technology and the envisioning of AI agents to assist with various tasks, and whose integrity was questioned by a prevailing theory as mentioned in articles from both Fortune and TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/OpenAI's_ex-chairman_accuses_board_of_going_rogue_in_firing_Altman__'Sam_and_I_a.md",
+        "knowledge/multihop-news/WTF_is_going_on_at_OpenAI__We_have_theories.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.8780956268310547,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 14,
+      "query": "Does the 'Sporting News' article claim that the England national rugby union team has had the same path to the Rugby World Cup semifinal compared to the path of The Wallabies (Australian national rugby union team) as implied by the 'Wide World Of Sports' article, with England defeating specific teams and The Wallabies' fate depending on a match between other teams?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Where_to_watch_England_vs_South_Africa__Live_stream,_TV_channel,_lineups,_odds_f.md",
+        "knowledge/multihop-news/The_story_behind_anguished_Wallabies_star's_photo.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 3.9673614501953125,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 15,
+      "query": "Which football club, recently discussed in articles from 'The Guardian', 'The Roar | Sports Writers Blog', and 'BBC News - Entertainment & Arts', had a significant change in league position due to a points penalty after a series of wins, and is recognized for its history and community importance as emphasized by Farhad Moshiri following an introduction by its late chairman Bill Kenwright?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Theatre_producer_and_Everton_chairman_Kenwright_dies.md",
+        "knowledge/multihop-news/Everton_players_and_fans_will_be_fired_up_by_points_penalty,_asserts_Sean_Dyche.md",
+        "knowledge/multihop-news/Ange_aghast_as_Spurs_suffer_‘unbelievable’_West_Ham_turnaround_–_with_two_of_the.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.632265567779541,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 16,
+      "query": "Who is the individual that presented himself as a trustworthy figure in the cryptocurrency industry according to The Verge, was informed about a significant financial discrepancy after a judge's intervention, and is alleged by the prosecution in a TechCrunch article to have committed fraud for personal gains?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/The_FTX_trial_is_bigger_than_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/Sam_Bankman-Fried_didn’t_ask_where_the_$8_billion_went.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9799716472625732,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 17,
+      "query": "Has the 'Sporting News' maintained consistency in its explanation of sports betting terms, specifically regarding 'Bettors who wager on the \"over\"' before November 6, 2023, as compared to its earlier report on November 1, 2023?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Prop_Betting_-_What_is_a_Prop_Bet.md",
+        "knowledge/multihop-news/Totals_Betting_-_What_is_an_Over_Under_Bet.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9030802249908447,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 18,
+      "query": "Who is the individual associated with FTX, who, according to reports from 'Cnbc | World Business News Leader', 'The Verge', 'TechCrunch', and another 'TechCrunch' article, planned to establish a board with experts for his company, struggled with managing the significant growth of his company alongside Alameda Research, was implicated in directing a $14 billion customer fund misappropriation, and is alleged by the prosecution to have committed fraud for personal gain?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/Sex,_Signal_messages,_and_sabotaging_FTX's_code__SBF_execs_and_Bahamas_roommates.md",
+        "knowledge/multihop-news/The_jury_finally_hears_from_Sam_Bankman-Fried.md",
+        "knowledge/multihop-news/SBF_Trial__The_latest_updates_from_the_FTX_collapse’s_courtroom_drama.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9169702529907227,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 19,
+      "query": "Who is the individual under 30, once considered the richest in that age bracket, who has pleaded not guilty to fraud and conspiracy charges and is accused by the prosecution of committing fraud to achieve wealth, power, and influence, as reported by TechCrunch?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Sam_Altman_backs_teens’_startup,_Google_unveils_the_Pixel_8_and_TikTok_tests_an.md",
+        "knowledge/multihop-news/SBF,_riding_high_on_FTX,_reportedly_offered_$5B_to_Trump_to_cancel_President_re-.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.0006656646728516,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 20,
+      "query": "Which pop star, who is open about her relationship with a Chiefs TE and is unaffected by paparazzi attention, has a busy schedule with the Eras Tour and received a friendship bracelet with his number from her partner, as reported by 'The Independent - Life and Style' and 'CBSSports.com'?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Travis_Kelce_faces_backlash_after_comments_about_‘finding_a_breeder’_resurface_a.md",
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/Taylor_Swift_reveals_secret_start_to_her_relationship_with_Travis_Kelce.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.65084171295166,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 21,
+      "query": "Does the article from The Verge suggest that a GameStop gift card is a universally useless gift for gamers regardless of console preference, while the Polygon article recommends specific Nintendo Switch games, indicating a more targeted gift approach for owners of that console?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Here_are_over_40_last-minute_gifts_you_can_still_nab_before_Christmas.md",
+        "knowledge/multihop-news/6_games_to_play_first_on_your_new_Nintendo_Switch.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.8524675369262695,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 22,
+      "query": "Does the article from 'The Independent - Life and Style' claim that Taylor Swift is secretive about her relationship with a specific individual, in contrast to the 'CBSSports.com' article which discusses her rumored romance but focuses on her attendance and performance at a specific venue?",
+      "question_type": "comparison_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/Taylor_Swift-Travis_Kelce_timeline__Everything_to_know_about_rumored_romance_bet.md",
+        "knowledge/multihop-news/Taylor_Swift_is_Time’s_Person_of_the_Year.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.890207052230835,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 23,
+      "query": "Did The Age report on November 7, 2023, contradict the allegations of Donald Trump's financial misrepresentations after the report by Fortune on September 26, 2023, claiming Donald Trump inflated the value of his Trump Tower apartment?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_$777_million_surprise__Donald_Trump_is_getting_richer.md",
+        "knowledge/multihop-news/Donald_Trump_defrauded_banks_with_'fantasy'_to_build_his_real_estate_empire,_jud.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.8635199069976807,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 24,
+      "query": "Which company, according to TechCrunch articles, invested billions to secure its status as the default search engine on various platforms and is also accused of harming news publishers' revenue streams through anticompetitive practices?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/More_from_the_US_v_Google_trial__vertical_search,_pre-installs_and_the_case_of_F.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.049001693725586,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 25,
+      "query": "Considering the information from a BBC News article detailing TomTom's latest strategic partnership and a Reuters report on TomTom's financial performance in the last quarter, which European country, home to TomTom's headquarters, is both the location of the new strategic partner's primary operations and also where TomTom reported a significant increase in consumer sales?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 1.9567229747772217,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 26,
+      "query": "Between the report from 'The Verge' on 2023-11-24 and the report from 'Wired' on 2023-11-25, is there consistency in the focus on the utility of charging devices such as 'Universal travel adapters' and '10,000-mAh capacity power bank' during Black Friday sales?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/54_Best_Apple_Black_Friday_Deals_(2023)__iPad,_Apple_Watch,_AirPods.md",
+        "knowledge/multihop-news/Some_of_our_favorite_devices_are_on_sale_for_Black_Friday.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.009676456451416,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 27,
+      "query": "Which company, known for ranking local search results based on relevance, distance, and prominence according to an article from The Verge, is also mentioned in two TechCrunch articles, one discussing the lack of planned additional measures for a video platform in the next six months, and the other citing a class action antitrust suit for siphoning off content, readers, and ad revenue from news publishers?",
+      "question_type": "inference_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/The_restaurant_nearest_Google.md",
+        "knowledge/multihop-news/News_publisher_files_class_action_antitrust_suit_against_Google,_citing_AI’s_har.md",
+        "knowledge/multihop-news/Deepfake_election_risks_trigger_EU_call_for_more_generative_AI_safeguards.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.043339729309082,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 28,
+      "query": "Considering the information from an article by The Times of India and another by The Hindustan Times on Jaya Bachchan, which character from a film discussed in both articles is portrayed by an actor who has also served as a member of the Rajya Sabha?",
+      "question_type": "null_query",
+      "ground_truth_paths": [],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.0
+    },
+    {
+      "retrieved_paths": [],
+      "skill_paths": [],
+      "fused_paths": [],
+      "fallback_used": false,
+      "skill_status": "uncertain",
+      "skill_reason": "",
+      "elapsed": 2.6177399158477783,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '1113', 'message': '余额不足或无可用资源包,请充值。'}}",
+      "id": 29,
+      "query": "Has the narrative around the All Blacks' team focus and performance in The Roar | Sports Writers Blog articles changed from the report defending a star centre after a loss to Argentina to the analysis of their playing for individual accolades, and finally to their actions in the dramatic final against the Springboks?",
+      "question_type": "temporal_query",
+      "ground_truth_paths": [
+        "knowledge/multihop-news/‘It_happens’__All_Blacks_defend_star_centre_after_spray_as_Cheika_heaps_pressure.md",
+        "knowledge/multihop-news/Legacy_vs_ego__The_Springboks_are_playing_for_South_Africa,_the_All_Blacks_are_p.md",
+        "knowledge/multihop-news/THE_GREATEST!_Boks_beat_All_Blacks_in_instant_classic_to_claim_record_FOURTH_RWC.md"
+      ],
+      "hit@5": 0,
+      "hit@10": 0,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr": 0.0
+    }
+  ]
+}

@@ -79,12 +79,21 @@ class KnowledgeOrchestrator:
         final_status = skill_result.status
         final_reason = skill_result.reason
 
+        # Fallback policy: if Skill is not fully confident (status != success),
+        # we add vector + BM25 evidence as a safety net. The previous gate
+        # required narrowed_types to be empty or contain {md, json}, but in
+        # practice the LLM can fill narrowed_types with arbitrary tokens
+        # (e.g. "unknown", "news", source_type leaks), which silently
+        # disabled the fallback. We now skip fallback only when the user
+        # explicitly narrowed to non-text formats we can't index for vectors.
+        non_indexable_types = {"pdf", "excel", "xlsx", "xls"}
+        narrowed_to_non_indexable = (
+            bool(skill_result.narrowed_types)
+            and all(item in non_indexable_types for item in skill_result.narrowed_types)
+        )
         should_fallback = (
             skill_result.status in {"partial", "not_found", "uncertain"}
-            and (
-                not skill_result.narrowed_types
-                or any(item in {"md", "json"} for item in skill_result.narrowed_types)
-            )
+            and not narrowed_to_non_indexable
         )
 
         if should_fallback:

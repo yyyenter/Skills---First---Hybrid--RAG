@@ -66,6 +66,8 @@ class AgentManager:
                 api_key=settings.llm_api_key,
                 base_url=settings.llm_base_url,
                 temperature=0,
+                request_timeout=60,
+                max_retries=2,
             )
 
         if not settings.llm_api_key:
@@ -76,6 +78,8 @@ class AgentManager:
             api_key=settings.llm_api_key,
             base_url=settings.llm_base_url,
             temperature=0,
+            request_timeout=60,
+            max_retries=2,
         )
 
     def _build_agent(

@@ -36,13 +36,17 @@ class PythonReplTool(BaseTool):
                 [sys.executable, "-c", code],
                 cwd=self._root_dir,
                 capture_output=True,
-                text=True,
+                # text=False to avoid Python decoding stdout with the locale
+                # codec (which dies on non-locale bytes). Decode manually.
+                text=False,
                 timeout=15,
                 check=False,
             )
         except subprocess.TimeoutExpired:
             return "Timed out after 15 seconds."
-        combined = (completed.stdout or "") + (completed.stderr or "")
+        stdout = (completed.stdout or b"").decode("utf-8", errors="replace")
+        stderr = (completed.stderr or b"").decode("utf-8", errors="replace")
+        combined = stdout + stderr
         return (combined.strip() or "[no output]")[:5000]
 
     async def _arun(

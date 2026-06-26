@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from llama_index.core import Document, Settings as LlamaSettings, StorageContext, VectorStoreIndex, load_index_from_storage
+from llama_index.core.embeddings import BaseEmbedding
 from llama_index.embeddings.openai import OpenAIEmbedding
 
 from config import get_settings
@@ -19,6 +20,51 @@ from knowledge_retrieval.types import Evidence, IndexStatus
 HEADING_PATTERN = re.compile(r"^(#{1,6})\s+(.*)$")
 ALNUM_PATTERN = re.compile(r"[A-Za-z0-9_]+")
 CHINESE_BLOCK_PATTERN = re.compile(r"[\u4e00-\u9fff]+")
+
+
+class _LangChainEmbeddingAdapter(BaseEmbedding):
+    """Bridge LangChain's OpenAIEmbeddings into LlamaIndex's BaseEmbedding.
+
+    Used as fallback when the configured embedding model name is not in
+    LlamaIndex's OpenAI-only enum (e.g. zhipu's ``embedding-3``,
+    bailian's ``text-embedding-v4``).
+    """
+
+    _client: Any = None
+
+    def __init__(self, api_key: str, base_url: str, model: str, **kwargs: Any) -> None:
+        super().__init__(model_name=model, **kwargs)
+        from langchain_openai import OpenAIEmbeddings  # lazy import
+
+        # Use a private attribute so pydantic does not try to validate it
+        object.__setattr__(
+            self,
+            "_client",
+            OpenAIEmbeddings(
+                api_key=api_key,
+                base_url=base_url,
+                model=model,
+                check_embedding_ctx_length=False,
+            ),
+        )
+
+    def _get_query_embedding(self, query: str) -> list[float]:
+        return self._client.embed_query(query)
+
+    async def _aget_query_embedding(self, query: str) -> list[float]:
+        return self._client.embed_query(query)
+
+    def _get_text_embedding(self, text: str) -> list[float]:
+        return self._client.embed_query(text)
+
+    async def _aget_text_embedding(self, text: str) -> list[float]:
+        return self._client.embed_query(text)
+
+    def _get_text_embeddings(self, texts: list[str]) -> list[list[float]]:
+        return self._client.embed_documents(texts)
+
+    async def _aget_text_embeddings(self, texts: list[str]) -> list[list[float]]:
+        return self._client.embed_documents(texts)
 
 
 class KnowledgeIndexer:
@@ -74,13 +120,29 @@ class KnowledgeIndexer:
     def _supports_embeddings(self) -> bool:
         return bool(get_settings().embedding_api_key)
 
-    def _build_embed_model(self) -> OpenAIEmbedding:
+    def _build_embed_model(self) -> BaseEmbedding:
+        """Build a LlamaIndex-compatible embedding model.
+
+        LlamaIndex's OpenAIEmbedding hard-validates the model name against
+        an OpenAI-only enum, which breaks for zhipu/bailian endpoints whose
+        model id (e.g. `embedding-3`) is not OpenAI's. We fall back to a
+        thin LangChain-backed wrapper for OpenAI-compatible providers whose
+        model name is not in the LlamaIndex enum.
+        """
         settings = get_settings()
-        return OpenAIEmbedding(
-            api_key=settings.embedding_api_key,
-            api_base=settings.embedding_base_url,
-            model=settings.embedding_model,
-        )
+        try:
+            return OpenAIEmbedding(
+                api_key=settings.embedding_api_key,
+                api_base=settings.embedding_base_url,
+                model=settings.embedding_model,
+            )
+        except ValueError:
+            # Model not in LlamaIndex enum -> use LangChain wrapper
+            return _LangChainEmbeddingAdapter(
+                api_key=settings.embedding_api_key,
+                base_url=settings.embedding_base_url,
+                model=settings.embedding_model,
+            )
 
     def status(self) -> IndexStatus:
         return IndexStatus(
